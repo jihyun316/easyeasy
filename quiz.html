@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-2.2.4.min.js" ></script>
+    <script src="js/main.js"></script>
+    <script src="https://connect.facebook.net/en_US/sdk.js?hash=0b85e354fb0c630db39e36416e209807" async="" crossorigin="anonymous"></script>
+    <script src="https://www.korea.kr/jsV4/kakao.min.js"></script>
+    <script src="https://www.korea.kr/jsV4/kt_sns.js"></script>
+    <script src="https://wcs.naver.net/wcslog.js"></script>
+    <title>퀴즈로 보는 윤석열정부 1년</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+</head>
+<body>
+    <section id="intro"  class="on">
+        <div class="inner">
+            <div class="intro_pop active">
+                <div class="pop_inner">
+                    <div class="cont">
+                        <div>
+
+                            <h3>퀴즈로 보는 1년</h3>
+                            <p>모든 퀴즈를 <strong>끝까지 다 풀면</strong> 추첨을 통해 선물을 드립니다.</p>
+                            <dl>
+                                <div>
+                                    <dt>이벤트 기간</dt>
+                                    <dd>2023년 5월 8일 ~ 21일</dd>
+                                </div>
+                                <div>
+                                    <dt>당첨자 발표</dt>
+                                    <dd>2023년 5월 24일</dd>
+                                </div>
+                                <div>
+                                    <dt>당첨자 발표</dt>
+                                    <dd>치킨세트(5명), 문화상품권(20명), 편의점상품권(30명), 음료기프티콘(50명)</dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <button type="button" class="intro_start">이벤트 참여하기<img src="img/btn_arr.gif" alt="" /></button>
+                    </div>
+                    <div class="bottom">
+                        <div class="today">
+                            <input type="checkbox" name="fct" id="fct" title="오늘 하루 보지않기">
+                            <label for="fct"><i>오늘 하루 보지않기</i></label>
+                        </div>
+                        <button type="button" class="intro_close"><i class="xi-close-thin"></i>닫기</button>
+                    </div>
+                </div>
+            </div>
+            <h2 class="logo"><a href="" title="새창열기" target="_blank"><img src="img/intro_logo.png" alt="윤석열정부 1년 특집바로가기 THE FIRST ANNIVERSARY" /></a></h2>
+            <div class="sns">
+                <div class="share">
+                    <button class="open" type="button"><i class="xi-share-alt-o" aria-hidden="true"></i><span>공유열기</span></button>
+                    <div class="share_lst">
+                        
+                        <ul>
+                            <li><button class="kt" title="카카오톡 공유 새창으로 열림" class="kakao-link-btn" type="button" onclick="sendKakao(); return false;"><img src="img/sns_01.png" alt="카카오톡" /></button></li>
+                            <li><button class="fb" title="페이스북 공유 새창으로 열림" type="button"  class="shareFacebook"onclick="sendFaceBook()"><img src="img/sns_03.png" alt="페이스북" /></button></li>
+                            <li><button class="tw" title="트위터 공유 새창으로 열림" type="button" onclick="shareTwitter(); return false;"><img src="img/sns_05.png" alt="트위터" /></button></li>
+                            <li><button class="bd" title="밴드 공유 새창으로 열림" type="button" onclick="band(); return false;"><img src="img/sns_07.png" alt="밴드" /></button></li>
+                        </ul>
+                        <button class="close" type="button"><i class="xi-close-min" aria-hidden="true"></i><span>공유 닫기</span></button>
+                    </div>
+                </div>
+            </div>
+            <article>
+                <div class="title">
+                    <h3><img src="img/intro_tit.png" alt="퀴즈로 보는 윤석열정부 1년"/></h3>
+                    <button type="button" class="intro_pop_show">시작하기</button>
+                    <div class="sns">
+                        <div class="share">
+                            <button class="open" type="button"><i class="xi-share-alt-o" aria-hidden="true"></i><span>공유하기</span></button>
+                            <div class="share_lst">
+                                <ul>
+                                    <li><button class="kt" title="카카오톡 공유 새창으로 열림" class="kakao-link-btn" type="button" onclick="sendKakao(); return false;"><img src="img/sns_01.png" alt="카카오톡" /></button></li>
+                                    <li><button class="fb" title="페이스북 공유 새창으로 열림" type="button"  class="shareFacebook"><img src="img/sns_03.png" alt="페이스북" /></button></li>
+                                    <li><button class="tw" title="트위터 공유 새창으로 열림" type="button" onclick="twitter2(); return false;"><img src="img/sns_05.png" alt="트위터" /></button></li>
+                                    <li><button class="bd" title="밴드 공유 새창으로 열림" type="button" onclick="band(); return false;"><img src="img/sns_07.png" alt="밴드" /></button></li>
+                                </ul>
+                                <button class="close" type="button"><i class="xi-close-min" aria-hidden="true"></i><span>공유 닫기</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="people"><img src="img/intro_img01.png" alt="" /></div>
+            </article>
+        </div>
+    </section>
+    
+    <section id="quizWrap">
+        <div id="q_mobile">
+            <h4>퀴즈로 보는 윤석열정부 1년</h4>
+            <div class="sns">
+                <div class="share">
+                    <button class="open" type="button"><i class="xi-share-alt-o" aria-hidden="true"></i><span>공유열기</span></button>
+                    <div class="share_lst">
+                        <ul>
+                            <li><button class="kt" title="카카오톡 공유 새창으로 열림" class="kakao-link-btn" type="button" onclick="sendKakao(); return false;"><img src="img/sns_01.png" alt="카카오톡" /></button></li>
+                            <li><button class="fb" title="페이스북 공유 새창으로 열림" type="button"  class="shareFacebook"><img src="img/sns_03.png" alt="페이스북" /></button></li>
+                            <li><button class="tw" title="트위터 공유 새창으로 열림" type="button" onclick="twitter2(); return false;"><img src="img/sns_05.png" alt="트위터" /></button></li>
+                            <li><button class="bd" title="밴드 공유 새창으로 열림" type="button" onclick="band(); return false;"><img src="img/sns_07.png" alt="밴드" /></button></li>
+                        </ul>
+                        <button class="close" type="button"><i class="xi-close-min" aria-hidden="true"></i><span>공유 닫기</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <article class="img">
+            <div class="on"><img class="qimg_1" src="img/pc_01.png" alt="" /><img class="mobile" src="img/tablet_01.png" alt="" /></div>
+            <div><img class="qimg_2" src="img/pc_02.png" alt="" /><img class="mobile" src="img/tablet_02.png" alt="" /></div>
+            <div><img class="qimg_3" src="img/pc_03.png" alt="" /><img class="mobile" src="img/tablet_03.png" alt="" /></div>
+            <div><img class="qimg_4" src="img/pc_04.png" alt="" /><img class="mobile" src="img/tablet_04.png" alt="" /></div>
+            <div><img class="qimg_5" src="img/pc_05.png" alt="" /><img class="mobile" src="img/tablet_05.png" alt="" /></div>
+            <div><img class="qimg_6" src="img/pc_06.png" alt="" /><img class="mobile" src="img/tablet_06.png" alt="" /></div>
+            <div><img class="qimg_7" src="img/pc_07.png" alt="" /><img class="mobile" src="img/tablet_07.png" alt="" /></div>
+            <div><img class="qimg_8" src="img/pc_08.png" alt="" /><img class="mobile" src="img/tablet_08.png" alt="" /></div>
+            <div><img class="qimg_9" src="img/pc_09.png" alt="" /><img class="mobile" src="img/tablet_09.png" alt="" /></div>
+            <div><img class="qimg_10" src="img/pc_10.png" alt="" /><img class="mobile" src="img/tablet_10.png" alt="" /></div>
+            <div><img class="qimg_11" src="img/pc_11.png" alt="" /><img class="mobile" src="img/tablet_11.png" alt="" /></div>
+            <div><img class="qimg_12" src="img/pc_12.png" alt="" /><img class="mobile" src="img/tablet_12.png" alt="" /></div>
+            <div><img class="qimg_13" src="img/pc_13.png" alt="" /><img class="mobile" src="img/tablet_13.png" alt="" /></div>
+        </article>
+        <article class="quiz_zone">
+            <h4>퀴즈로 보는 윤석열정부 1년</h4>
+            <div class="sns">
+                <div class="share">
+                    <button class="open" type="button"><i class="xi-share-alt-o" aria-hidden="true"></i><span>공유열기</span></button>
+                    <div class="share_lst">
+                        
+                        <ul>
+                            <li><button class="kt" title="카카오톡 공유 새창으로 열림" class="kakao-link-btn" type="button" onclick="sendKakao(); return false;"><img src="img/sns_01.png" alt="카카오톡" /></button></li>
+                            <li><button class="fb" title="페이스북 공유 새창으로 열림" type="button"  class="shareFacebook"><img src="img/sns_03.png" alt="페이스북" /></button></li>
+                            <li><button class="tw" title="트위터 공유 새창으로 열림" type="button" onclick="twitter2(); return false;"><img src="img/sns_05.png" alt="트위터" /></button></li>
+                            <li><button class="bd" title="밴드 공유 새창으로 열림" type="button" onclick="band(); return false;"><img src="img/sns_07.png" alt="밴드" /></button></li>
+                        </ul>
+                        <button class="close" type="button"><i class="xi-close-min" aria-hidden="true"></i><span>공유 닫기</span></button>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li class="on"><a href="" class="q1">01</a></li>
+                    <li><a href="" class="q2">02</a></li>
+                    <li><a href="" class="q3">03</a></li>
+                    <li><a href="" class="q4">04</a></li>
+                    <li><a href="" class="q5">05</a></li>
+                    <li><a href="" class="q6">06</a></li>
+                    <li><a href="" class="q7">07</a></li>
+                    <li><a href="" class="q8">08</a></li>
+                    <li><a href="" class="q9">09</a></li>
+                    <li><a href="" class="q10">10</a></li>
+                    <li><a href="" class="q11">11</a></li>
+                    <li><a href="" class="q12">12</a></li>
+                    <li><a href="" class="q13">13</a></li>
+                </ul>
+            </nav>
+            <div class="quiz_cont">
+                <ul>
+                    <li id="q1" class="on">
+                        <strong class="q_num">01</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148901415" target="_blank" title="새창열기" class="q_link">#국민과 함께 ‘용산 시대’<i class="link_icon"></i></a>
+                        <div class="q_txt">윤석열 대통령은 <b>2022년 5월 10일
+                            용산 대통령실에서 임기를 시작</b>했습니다.
+                            국민과 함께한 <b>취임식 슬로건은 
+                            ‘ㅁㅁ 대한민국, OOO 국민의 나라’</b>입니다.
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" name="q1" id="q1_a" value="다시, 새로운"><label for="q1_a">다시, 새로운</label></span>
+                            <span><input type="radio" name="q1" id="q1_w" value="우리, 활기찬"><label for="q1_w">우리, 활기찬</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div><p>‘다시, 대한민국! 새로운 국민의 나라’…윤석열 제20대 대통령 10일 취임</p>
+                                <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148901415" title="새창열기" target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q2">
+                        <strong class="q_num">02</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148910598" target="_blank" title="새창열기" class="q_link">#대한민국 1호 영업사원<i class="link_icon"></i></a>
+                        <div class="q_txt">
+                            <b>윤석열 대통령</b>은 모든 외교의 중심을
+                            <b>경제와 수출</b>에 놓고 <b>1호 영업사원</b>으로 
+                            최전선에서 뛰고 있습니다. 2023년 1월 
+                            국빈방문한 <b>UAE는 OOO억 달러 투자</b>로 
+                            화답했습니다.
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q2_a" name="q2" value="300"><label for="q2_a">300</label></span>
+                            <span><input type="radio" id="q2_w" name="q2" value="200"> <label for="q2_w">200</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div><p>한-UAE 투자협력 플랫폼 구축…UAE 300억 달러 투자 지원</p>
+                                <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148910598" title="새창열기" target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q3">
+                        <strong class="q_num">03</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148910044" target="_blank" title="새창열기" class="q_link">#2023년은 3대 개혁 추진의 원년<i class="link_icon"></i>
+                        </a>
+                        <div class="q_txt">윤석열 대통령은 2023년 신년사에서 
+                            <b>대한민국의 미래</b>와 미래세대의 운명이 달린
+                            <b>OO, 교육, 연금 3대 개혁</b>을 더 이상 미룰 수 
+                            없다며 <b>가장 먼저 OO개혁으로 성장을 
+                            견인</b>하겠다고 밝혔습니다.
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q3_a" name="q3" value=""> <label for="q3_a">노동</label></span>
+                            <span><input type="radio" id="q3_w" name="q3" value=""> <label for="q3_w">정부</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div><p>윤 대통령 “3대 개혁 미룰 수 없어…먼저 노동개혁으로 성장 견인”</p>
+                                <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148910044" title="새창열기" target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q4">
+                        <strong class="q_num">04</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148908160" target="_blank" title="새창열기" class="q_link">#K-방산, 자주국방의 길<i class="link_icon"></i></a>
+                        <div class="q_txt">우리나라가 ‘최신예 국산 전투기 개발’을 
+                            선언한지 21년 만인 2022년 7월 19일 
+                            <b>국산 전투기 ‘KF-21 OOO’가 
+                            첫 시험비행에 성공</b>했습니다. 
+                            대한민국 최초 국산 전투기의 이름은?</div>
+                        <div class="answer">
+                            <span><input type="radio" id="q4_w" name="q4" value=""> <label for="q4_w">송골매</label></span>
+                            <span><input type="radio" id="q4_a" name="q4" value=""> <label for="q4_a">보라매</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div><p>[한컷] 국산 전투기 ‘KF-21 보라매’ 시제 2호기 최초 비행 성공 </p>
+                                <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148908160" title="새창열기" target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q5">
+                        <strong class="q_num">05</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148905271" target="_blank" title="새창열기" class="q_link">#국가 핵심 전략산업으로 돌아온 원전<i class="link_icon"></i></a>
+                        <div class="q_txt">한국은 UAE 바라카 원전 이후 13년 만에 
+                            <b>3조원 규모의 OOO 엘다바 원전 건설 사업 
+                            수주</b>에 성공하는 등 세계 최고 수준의
+                            원전 산업 경쟁력을 증명하고 있습니다. 
+                            엘다바는 어느 나라의 도시일까요?
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q5_a" name="q5" value=""> <label for="q5_a">이집트</label></span>
+                            <span><input type="radio" id="q5_w" name="q5" value=""> <label for="q5_w">UAE</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div><p>[한컷] 3조 원 규모 이집트 엘다바 원전 건설사업 수주 성공</p>
+                                <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148905271" title="새창열기" target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q6">
+                        <strong class="q_num">06</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148902762" target="_blank" title="새창열기" class="q_link">#상상이 현실로, 활짝 열린 우주시대<i class="link_icon"></i></a>
+                        <div class="q_txt">2022년 6월 성공적으로 발사된 ‘OOO’! 
+                            순수국내기술로 개발한 <b>한국형발사체
+                            ‘OOO’ 성공</b>으로 <b>우리나라는 세계 7대 
+                            실용위성 자력발사국</b>이 되었습니다. 
+                            한국형발사체의 이름은 무엇일까요?
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q6_w" name="q6" value=""> <label for="q6_w">다누리</label></span>
+                            <span><input type="radio" id="q6_a" name="q6" value=""> <label for="q6_a">누리호</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>누리호 발사 성공…세계 7번째 자력 위성 발사국 ‘우뚝’</p>
+                                <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148902762" title="새창열기" target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                            </div>
+                    </li>
+                    <li id="q7">
+                        <strong class="q_num">07</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148913064" target="_blank" title="새창열기" class="q_link">#청년과 함께하는 국정운영<i class="link_icon"></i></a>
+                        <div class="q_txt">정부는 <b>청년보좌역 신설</b>(9개 부처 시범), 
+                            부처별 <b>‘OOOO 자문단’ 운영</b>, 청년인턴
+                            채용(45개 중앙행정기관) 등을 통해 
+                            청년들이 직접 정책 과정에 참여하고 
+                            경험할 기회를 넓혔습니다. </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q7_a" name="q7" value=""> <label for="q7_a">2030</label></span>
+                            <span><input type="radio" id="q7_w" name="q7" value=""> <label for="q7_w">3040</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>[딱풀이] 청년보좌역</p>
+                                <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148913064" title="새창열기"
+                                    target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q8">
+                        <strong class="q_num">08</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148905950" target="_blank" title="새창열기" class="q_link">#K-콘텐츠, K-문화매력국가<i class="link_icon"></i></a>
+                        <div class="q_txt">2022년 9월 <b>‘오징어 게임’</b>이 비영어권 최초 
+                            <b>에미상 6개 부문을 석권</b>했습니다. 
+                            외신의 극찬을 한몸에 받으며 
+                            K-콘텐츠 위상을 높인 자랑스러운 
+                            <b>‘오징어 게임’! 감독은 누구</b>일까요?</div>
+                        <div class="answer">
+                            <span><input type="radio" id="q8_w" name="q8" value=""> <label for="q8_w">이정재</label></span>
+                            <span><input type="radio" id="q8_a" name="q8" value=""> <label for="q8_a">황동혁</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>[카드] “역사를 만들었다”…비영어권 최초 에미상 수상한 ‘오징어 게임’</p>
+                                <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148905950" title="새창열기"
+                                    target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q9">
+                        <strong class="q_num">09</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148906299" target="_blank" title="새창열기" class="q_link">#자유를 위한 국제연대 강화<i class="link_icon"></i></a>
+                        <div class="q_txt">윤석열 대통령은 <b>2022년 제77차 유엔총회 </b>
+                            기조연설을 통해 <b>변환기 국제문제 해법</b>으로 
+                            <b>OO와(과) ㅁㅁ를(을) 제시</b>하고 
+                            주요 국제문제 해결을 위한 
+                            적극적 기여 의사를 표명했습니다.</div>
+                        <div class="answer">
+                            <span><input type="radio" id="q9_a" name="q9" value=""> <label for="q9_a">자유, 연대</label></span>
+                            <span><input type="radio" id="q9_w" name="q9" value=""> <label for="q9_w">공정, 인권</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>대통령실 “국제사회에 ‘자유와 연대’ 제시…세일즈외교 성과”</p>
+                                <a href="ttps://www.korea.kr/news/policyNewsView.do?newsId=148906299" title="새창열기"
+                                    target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q10">
+                        <strong class="q_num">10</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148910025" target="_blank" title="새창열기" class="q_link">#만 나이 통일, 대한민국이 젊어집니다<i class="link_icon"></i></a>
+                        <div class="q_txt">연 나이, 만 나이 등 여러 나이 계산법의 
+                            혼용으로 발생하는 사회적·행정적 혼선을 
+                            해소하기 위해 ‘만 나이 통일법’이 공포 
+                            되었습니다. <b>만 나이 통일로 
+                            최대 ㅁ살까지 젊어질까요?</b>
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q10_w" name="q10" value=""> <label for="q10_w">1</label></span>
+                            <span><input type="radio" id="q10_a" name="q10" value=""> <label for="q10_a">2</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>[카드] 대한민국이 젊어집니다!</p>
+                                <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148910025" title="새창열기"
+                                    target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q11">
+                        <strong class="q_num">11</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148909222" target="_blank" title="새창열기" class="q_link">#꺾이지 않는 마음, 월드컵 16강 쾌거<i class="link_icon"></i></a>
+                        <div class="q_txt">제22회 카타르 월드컵에서 
+                            대한민국 축구 국가대표팀은 
+                            원정 두 번째 16강행을 달성했습니다. 
+                            <b>카타르 월드컵을 빛낸 자랑스러운 
+                            축구 국가대표팀의 주장</b>은?
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q11_a" name="q11" value=""> <label for="q11_a">손흥민</label></span>
+                            <span><input type="radio" id="q11_w" name="q11" value=""> <label for="q11_w">황희찬</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>윤 대통령, 축구대표단 환영 만찬… “‘꺾이지 않는 마음’ 큰 울림”</p>
+                                <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148909222" title="새창열기"
+                                    target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q12">
+                        <strong class="q_num">12</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148913422" target="_blank" title="새창열기" class="q_link">#따뜻한 동행, 약자복지의 실현<i class="link_icon"></i></a>
+                        <div class="q_txt">윤석열 대통령은 <b>약자복지는 국가의 책무</b>라 
+                            강조하며, 사회·경제적 약자지원을 강화해 
+                            왔습니다. 최근 약자복지를 포함한 <b>국민생활 
+                            지원정책을 한 권에 담은</b> ‘국민을 든든하게 <b>K-OO사다리</b>’를 발간했습니다.
+                            </div>
+                        <div class="answer">
+                            <span><input type="radio" id="q12_w" name="q12" value=""> <label for="q12_w">소통</label></span>
+                            <span><input type="radio" id="q12_a" name="q12" value=""> <label for="q12_a">희망</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>200여개 생활 지원 정책 담은 책자 ‘K-희망사다리’ 발간</p>
+                                <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148913422" title="새창열기"
+                                    target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="q13">
+                        <strong class="q_num">13</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148912506" target="_blank" title="새창열기" class="q_link">#자유와 연대의 상징, 굳건한 한미동맹<i class="link_icon"></i></a>
+                        <div class="q_txt"><b>2023년은 한미동맹 OO주년</b>입니다. 
+                            윤석열 대통령은 취임 11일 만에 
+                            한미정상회담을 갖고, <b >23.4월 국빈 방미를 하며</b> 미래를 향해 전진하는 
+                            <b>‘행동하는 한미동맹’</b>을 굳건히 하고 있죠.</div>
+                        <div class="answer">
+                            <span><input type="radio" id="q13_a" name="q13" value=""> <label for="q13_a">70</label></span>
+                            <span><input type="radio" id="q13_w" name="q13" value=""> <label for="q13_w">50</label></span>
+                        </div>
+                        <div class="hint">
+                            <strong class="tit">힌트보기</strong>
+                            <div>
+                                <p>윤 대통령, 4월 말 미국 국빈방문… “우리 정상으로는 2011년 이후 12년 만”</p>
+                                <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148912506" title="새창열기"
+                                    target="_blank"><i class="link_icon"></i>힌트 보러가기  </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <a class="logo" href="" title="새창열기" ><img src="img/q_logo.png" alt="윤석열정부 1년 특집바로가기 THE FIRST ANNIVERSARY" /></a>
+        </article>
+        <div id="mobile_foot">
+            <p class="progress_bar" ></p>
+            <div>
+                <button type="button" class="prev"><i class="xi-angle-left-min"></i>이전문제</button>
+                <p><em class="q_now">1</em> / 13</p>
+                <button type="button" class="next">다음문제<i class="xi-angle-right-min"></i></button>
+            </div>
+        </div>
+    </section>
+    <section id="resultWrap">
+        <h2 class="logo"><a href="" title="새창열기" target="_blank"><img src="img/result_logo.png" alt="윤석열정부 1년 특집바로가기 THE FIRST ANNIVERSARY" /></a></h2>
+        
+        <div class="sns">
+            <div class="share">
+                <button class="open" type="button"><i class="xi-share-alt-o" aria-hidden="true"></i><span>공유하기</span></button>
+                <div class="share_lst">
+                    
+                    <ul>
+                        <li><button class="kt" title="카카오톡 공유 새창으로 열림" class="kakao-link-btn" type="button" onclick="sendKakao(); return false;"><img src="img/sns_01.png" alt="카카오톡" /></button></li>
+                        <li><button class="fb" title="페이스북 공유 새창으로 열림" type="button"  class="shareFacebook"><img src="img/sns_03.png" alt="페이스북" /></button></li>
+                        <li><button class="tw" title="트위터 공유 새창으로 열림" type="button" onclick="twitter2(); return false;"><img src="img/sns_05.png" alt="트위터" /></button></li>
+                        <li><button class="bd" title="밴드 공유 새창으로 열림" type="button" onclick="band(); return false;"><img src="img/sns_07.png" alt="밴드" /></button></li>
+                    </ul>
+                    <button class="close" type="button"><i class="xi-close-min" aria-hidden="true"></i><span>공유 닫기</span></button>
+                </div>
+            </div>
+        </div>
+        <article class="result_cont">
+            <p class="result_txt"> 총 12문제 중 <span><em id="result"></em>문제 맞혔습니다.</span> </p>
+            <p class="txt">아쉬우니 한 번 더<br><b>도전해 볼까요?</b></p>
+            <ul>
+                <li><button type="button" class="retry_btn" onClick="window.location.reload()">문제 다시 풀어보기 <i class="xi-angle-right-min"></i></button></li>
+                <li><button type="button" id="show_sheet">정답 보러 가기<i class="xi-angle-right-min"></i></button></li>
+                <li><a href="">정책 더 공부하러 가기<i class="xi-angle-right-min"></i></a></li>
+                <li><a href="">개인정보 입력하러 가기<i class="xi-angle-right-min"></i></a></li>
+            </ul>
+        </article>
+    </section>
+    <section id="answerSheet">
+        <a class="logo" href="" title="새창열기" ><img src="img/q_logo.png" alt="윤석열정부 1년 특집바로가기 THE FIRST ANNIVERSARY" /></a>
+        <h2>퀴즈로 보는 윤석열정부 1년</h2>
+        
+        <div class="sns">
+            <div class="share">
+                        <button class="open" type="button"><i class="xi-share-alt-o" aria-hidden="true"></i><span>공유하기</span></button>
+                <div class="share_lst">
+                    
+                    <ul>
+                        <li><button class="kt" title="카카오톡 공유 새창으로 열림" class="kakao-link-btn" type="button" onclick="sendKakao(); return false;"><img src="img/sns_01.png" alt="카카오톡" /></button></li>
+                        <li><button class="fb" title="페이스북 공유 새창으로 열림" type="button"  class="shareFacebook"><img src="img/sns_03.png" alt="페이스북" /></button></li>
+                        <li><button class="tw" title="트위터 공유 새창으로 열림" type="button" onclick="twitter2(); return false;"><img src="img/sns_05.png" alt="트위터" /></button></li>
+                        <li><button class="bd" title="밴드 공유 새창으로 열림" type="button" onclick="band(); return false;"><img src="img/sns_07.png" alt="밴드" /></button></li>
+                    </ul>
+                    <button class="close" type="button"><i class="xi-close-min" aria-hidden="true"></i><span>공유 닫기</span></button>
+                </div>
+            </div>
+        </div>
+        <article class="answer_zone">
+            <div class="top">
+                <a href="" class="prev"><i class="xi-angle-left"></i> 이전으로</a>
+                <h3>정답확인</h3>
+                <a href="" class="retry" onClick="window.location.reload()">문제다시풀기<i class="xi-angle-right"></i> </a>
+            </div>
+            <div class="answer_cont">
+                <ul>
+                    <li>
+                        <strong class="q_num">01</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148901415" target="_blank" title="새창열기" class="q_link">#국민과 함께 ‘용산 시대’</a>
+                        <div class="q_txt">윤석열 대통령은 2022년 5월 10일
+                            용산 대통령실에서 임기를 시작했습니다.
+                            국민과 함께한 취임식 슬로건은 
+                            ‘<em>다</em><em>시</em> 대한민국, <em>새</em><em>로</em><em>운</em> 국민의 나라’입니다.
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">02</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148910598" target="_blank" title="새창열기" class="q_link">#대한민국 1호 영업사원</a>
+                        <div class="q_txt">
+                            윤석열 대통령은 모든 외교의 중심을
+                            경제와 수출에 놓고 1호 영업사원으로 
+                            최전선에서 뛰고 있습니다. 2023년 1월 
+                            국빈방문한 UAE는 <em>3</em><em>0</em><em>0</em>억 달러 투자로 
+                            화답했습니다.
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">03</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148910044" target="_blank" title="새창열기" class="q_link">#2023년은 3대 개혁 추진의 원년
+                        </a>
+                        <div class="q_txt">윤석열 대통령은 2023년 신년사에서 
+                            대한민국의 미래와 미래세대의 운명이 달린
+                            <em>노</em><em>동</em>, 교육, 연금 3대 개혁을 더 이상 미룰 수 
+                            없다며 가장 먼저 <em>노</em><em>동</em>개혁으로 성장을 
+                            견인하겠다고 밝혔습니다.
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">04</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148908160" target="_blank" title="새창열기" class="q_link">#K-방산, 자주국방의 길</a>
+                        <div class="q_txt">우리나라가 ‘최신예 국산 전투기 개발’을 
+                            선언한지 21년 만인 2022년 7월 19일 
+                            국산 전투기 ‘KF-21 <em>보</em><em>라</em><em>매</em>’가 
+                            첫 시험비행에 성공했습니다. 
+                            대한민국 최초 국산 전투기의 이름은?</div>
+                    </li>
+                    <li>
+                        <strong class="q_num">05</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148905271" target="_blank" title="새창열기" class="q_link">#국가 핵심 전략산업으로 돌아온 원전</a>
+                        <div class="q_txt">한국은 UAE 바라카 원전 이후 13년 만에 
+                            3조원 규모의 <em>이</em><em>집</em><em>트</em> 엘다바 원전 건설 사업 
+                            수주에 성공하는 등 세계 최고 수준의
+                            원전 산업 경쟁력을 증명하고 있습니다. 
+                            엘다바는 어느 나라의 도시일까요?
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">06</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148902762" target="_blank" title="새창열기" class="q_link">#상상이 현실로, 활짝 열린 우주시대</a>
+                        <div class="q_txt">2022년 6월 성공적으로 발사된 ‘<em>누</em><em>리</em><em>호</em>’! 
+                            순수국내기술로 개발한 한국형발사체
+                            ‘<em>누</em><em>리</em><em>호</em>’ 성공으로 우리나라는 세계 7대 
+                            실용위성 자력발사국이 되었습니다. 
+                            한국형발사체의 이름은 무엇일까요?
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">07</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148913064" target="_blank" title="새창열기" class="q_link">#청년과 함께하는 국정운영</a>
+                        <div class="q_txt">정부는 청년보좌역 신설(9개 부처 시범), 
+                            부처별 ‘<em>2</em><em>0</em><em>3</em><em>0</em> 자문단’ 운영, 청년인턴
+                            채용(45개 중앙행정기관) 등을 통해 
+                            청년들이 직접 정책 과정에 참여하고 
+                            경험할 기회를 넓혔습니다. </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">08</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148905950" target="_blank" title="새창열기" class="q_link">#K-콘텐츠, K-문화매력국가</a>
+                        <div class="q_txt">2022년 9월 ‘오징어 게임’이 비영어권 최초 
+                            에미상 6개 부문을 석권했습니다. 
+                            외신의 극찬을 한몸에 받으며 
+                            K-콘텐츠 위상을 높인 자랑스러운 
+                            ‘오징어 게임’! 감독은 누구일까요?
+                            <p><em>황</em><em>동</em><em>혁</em></p>
+                        </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">09</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148906299" target="_blank" title="새창열기" class="q_link">#자유를 위한 국제연대 강화</a>
+                        <div class="q_txt">윤석열 대통령은 2022년 제77차 유엔총회 
+                            기조연설을 통해 변환기 국제문제 해법으로 
+                            <em>자</em><em>유</em>와(과) <em>연</em><em>대</em>를(을) 제시하고 
+                            주요 국제문제 해결을 위한 
+                            적극적 기여 의사를 표명했습니다.</div>
+                    </li>
+                    <li>
+                        <strong class="q_num">10</strong>
+                        <a href="https://www.korea.kr/news/visualNewsView.do?newsId=148910025" target="_blank" title="새창열기" class="q_link">#만 나이 통일, 대한민국이 젊어집니다</a>
+                        <div class="q_txt">연 나이, 만 나이 등 여러 나이 계산법의 
+                            혼용으로 발생하는 사회적·행정적 혼선을 
+                            해소하기 위해 ‘만 나이 통일법’이 공포 
+                            되었습니다. 만 나이 통일로 
+                            최대 <em>2</em>살까지 젊어질까요?
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">11</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148909222" target="_blank" title="새창열기" class="q_link">#꺾이지 않는 마음, 월드컵 16강 쾌거</a>
+                        <div class="q_txt">제22회 카타르 월드컵에서 
+                            대한민국 축구 국가대표팀은 
+                            원정 두 번째 16강행을 달성했습니다. 
+                            카타르 월드컵을 빛낸 자랑스러운 
+                            축구 국가대표팀의 주장은?
+                            <p><em>손</em><em>흥</em><em>민</em></p>
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">12</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148913422" target="_blank" title="새창열기" class="q_link">#따뜻한 동행, 약자복지의 실현</a>
+                        <div class="q_txt">윤석열 대통령은 약자복지는 국가의 책무라 
+                            강조하며, 사회·경제적 약자지원을 강화해 
+                            왔습니다. 최근 약자복지를 포함한 국민생활 
+                            지원정책을 한 권에 담은 ‘국민을 든든하게 K-<em>희</em><em>망</em>사다리’를 발간했습니다.
+                            </div>
+                    </li>
+                    <li>
+                        <strong class="q_num">13</strong>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148912506" target="_blank" title="새창열기" class="q_link">#자유와 연대의 상징, 굳건한 한미동맹</a>
+                        <div class="q_txt">2023년은 한미동맹 <em>7</em><em>0</em>주년입니다. 
+                            윤석열 대통령은 취임 11일 만에 
+                            한미정상회담을 갖고, 23.4월 국빈 방미를 하며 미래를 향해 전진하는 
+                            ‘행동하는 한미동맹’을 굳건히 하고 있죠.</div>
+                    </li>
+                </ul>
+            </div>
+            
+        </article>
+    </section>
+</body>
+</html> 
